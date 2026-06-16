@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheSync e-Portfolio | Nuradelina Shafi Binti Indra Afendi</title>
+<meta name="description" content="Student e-Portfolio for SheSync Android Development Project">
+<style>
+:root{
+--primary:#1e6327;          /* App Main Deep Green */
+--secondary:#84b082;        /* App Soft Green Accent */
+--accent:#14441b;           /* Rich Dark Green for titles */
+--light:#f6f9f0;            /* App Pale Sage Background */
+--gradient-start:#eaf2d7;   /* App Gradient Top */
+--gradient-end:#f7fbf0;     /* App Gradient Bottom */
+--pink-accent:#fbbad4;       /* App Pastel Pink */
+--lavender-accent:#ebdfff;   /* App Pastel Lavender */
+--white:#ffffff;
+--shadow:0 10px 25px rgba(30,99,39,0.06);
+--radius:18px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+color:#223324;
+line-height:1.7;
+min-height:100vh;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,0.92);
+backdrop-filter:blur(10px);
+box-shadow:0 2px 12px rgba(30,99,39,0.05);
+border-bottom:1px solid rgba(132,176,130,0.2);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.nav-container a{
+text-decoration:none;
+color:#223324;
+padding:18px 20px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-container a:hover{
+color:var(--primary);
+background:rgba(235,223,255,0.4); /* Subtle pastel lavender hover link background */
+}
+
+header{
+background:linear-gradient(135deg, var(--primary), var(--accent));
+color:white;
+padding:120px 20px 90px;
+text-align:center;
+position:relative;
+}
+
+header h1{
+font-size:3rem;
+margin-bottom:10px;
+letter-spacing:0.5px;
+}
+
+header p{
+font-size:1.1rem;
+opacity:0.9;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+section{
+padding:80px 0;
+}
+
+.section-title{
+font-size:2.4rem;
+text-align:center;
+margin-bottom:50px;
+color:var(--accent);
+position:relative;
+}
+
+.section-title::after {
+content: '';
+display: block;
+width: 50px;
+height: 4px;
+background: var(--pink-accent);
+margin: 10px auto 0;
+border-radius: 2px;
+}
+
+.intro-card,
+.info-card,
+.card,
+.resource,
+.reflection-box{
+background:var(--white);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+border: 1px solid rgba(132,176,130,0.15);
+}
+
+.intro-card{
+padding:35px;
+margin-top: 30px;
+}
+
+.profile-heading {
+font-size: 1.4rem;
+color: var(--accent);
+margin-bottom: 20px;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 700;
+border-left: 5px solid var(--pink-accent);
+padding-left: 12px;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.info-card{
+padding:25px;
+background: var(--white);
+transition: 0.3s;
+}
+
+.info-card:nth-child(even) {
+background: rgba(251,186,212,0.15); /* Light pastel pink twist */
+}
+
+.info-card:nth-child(odd) {
+background: rgba(235,223,255,0.25); /* Light pastel lavender twist */
+}
+
+.info-card h3{
+color:var(--accent);
+margin-bottom:8px;
+font-size: 1.1rem;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:30px;
+}
+
+.card{
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow: 0 15px 30px rgba(30,99,39,0.12);
+}
+
+.card-content{
+padding:25px;
+}
+
+.card h3{
+color:var(--accent);
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+iframe{
+width:100%;
+height:230px;
+border:none;
+background: #e5ecd8;
+}
+
+.reflection{
+background:rgba(235,223,255,0.3);
+padding:15px;
+border-left:5px solid var(--primary);
+border-radius:8px;
+margin-top:15px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 22px;
+background:var(--primary);
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+margin-top:15px;
+transition:0.3s;
+border: 1px solid transparent;
+}
+
+.btn:hover{
+background:var(--accent);
+}
+
+.sdg-banner{
+background:linear-gradient(135deg, var(--secondary), var(--primary));
+color:white;
+padding:25px;
+border-radius:var(--radius);
+margin-top:25px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:center;
+}
+
+.skill{
+background:var(--primary);
+color:white;
+padding:12px 18px;
+border-radius:999px;
+font-weight:600;
+transition: 0.2s;
+}
+
+.skill:hover {
+background: var(--accent);
+transform: scale(1.05);
+}
+
+.resources-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.resource{
+padding:20px;
+background: rgba(255, 255, 255, 0.7);
+}
+
+.reflection-box{
+padding:35px;
+border-top: 5px solid var(--pink-accent);
+}
+
+footer{
+background:var(--accent);
+color:white;
+text-align:center;
+padding:35px 20px;
+border-top: 4px solid var(--pink-accent);
+}
+
+footer p{
+margin:6px 0;
+}
+
+@media(max-width:768px){
+header h1{
+font-size:2rem;
+}
+.section-title{
+font-size:1.9rem;
+}
+iframe{
+height:220px;
+}
+} </style>
+
+</head>
+<body>
+
+<nav>
+<div class="nav-container">
+<a href="#home">Home</a>
+<a href="#labs">Labs</a>
+<a href="#projects">Projects</a>
+<a href="#reflection">Reflection</a>
+<a href="#skills">Skills</a>
+<a href="#resources">Resources</a>
+</div>
+</nav>
+
+<header id="home">
+<h1>SheSync e-Portfolio</h1>
+<p>Women's health and wellness application
+</p>
+</header>
+
+<div class="container">
+
+<section>
+<!-- PROFILE SECTION WITH NEW "STUDENT PROFILE" HEADER -->
+<h2 class="profile-heading">Student Profile</h2>
+<div class="info-grid">
+<div class="info-card">
+<h3>Name</h3>
+<p>NURADELINA SHAFI BINTI INDRA AFENDI</p>
+</div>
+
+<div class="info-card">
+<h3>Matric No</h3>
+<p>A212796</p>
+</div>
+
+<div class="info-card">
+<h3>Programme</h3>
+<p>INFORMATION TECHNOLOGY</p>
+</div>
+
+<div class="info-card">
+<h3>Instructor</h3>
+<p>DR. NAZATUL AINI BINTI ABD MAJID</p>
+</div>
+</div>
+
+<div class="intro-card">
+<h2>Introduction</h2>
+<p>
+SheSync is a women's health and wellness application designed to help users manage their menstrual health more effectively. The app allows users to track their menstrual cycles, monitor their daily moods, record personal experiences through a diary feature, and access self-care resources to support their physical and emotional well-being.
+</p>
+<br>
+<p>
+In addition, SheSync helps users locate nearby clinics and view community-shared healthcare information, making it easier to seek medical assistance when needed. By providing these features in a single platform, SheSync aims to promote better health awareness, encourage self-care, and empower women to take a proactive role in managing their overall well-being.
+</p>
+
+<div class="sdg-banner">
+<h3>SDG 3 – Good Health and Well-Being</h3>
+<p>
+SheSync promotes women's health by helping users track menstrual cycles, monitor well-being, access healthcare information, and locate nearby clinics for better health management.
+</p>
+</div>
+</div>
+</section>
+
+<section id="labs">
+<h2 class="section-title">Labs</h2>
+
+<div class="cards">
+
+<article class="card">
+<!-- LAB 1 -->
+<iframe src="https://www.youtube-nocookie.com/embed/IUax1Sx7UB4" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="card-content">
+<h3>Lab 1 (UI)</h3>
+<p>Created user interfaces using Jetpack Compose layouts, styling techniques, and reusable components.</p>
+<div class="reflection">
+<strong>Reflection:</strong>
+<p>I learned how to create user interfaces using Jetpack Compose. I gained experience in arranging layouts, applying styling, and creating reusable UI components. It was challenging at first but I managed to get friendly with it.</p>
+</div>
+</div>
+</article>
+
+<article class="card">
+<!-- LAB 2 -->
+<iframe src="https://www.youtube-nocookie.com/embed/yGfNMeRJ1qU" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="card-content">
+<h3>Lab 2 (Interaction)</h3>
+<p>Implemented interactive components, state handling, and dynamic user interactions.</p>
+<div class="reflection">
+<strong>Reflection:</strong>
+<p>This lab introduced interactive components such as buttons, text fields, and state management. I learned how user actions can trigger changes within the application and how to create a more dynamic user experience.</p>
+</div>
+</div>
+</article>
+
+<article class="card">
+<!-- LAB 3 -->
+<iframe src="https://www.youtube-nocookie.com/embed/KbThC9ZJxFE" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="card-content">
+<h3>Lab 3 (Material Design)</h3>
+<p>Applied Material Design principles, themes, and colour systems to improve user experience.</p>
+<div class="reflection">
+<strong>Reflection:</strong>
+<p>Implemented Material Design in my app by adding themes and colours. This enhanced both the appearance and usability of the application.</p>
+</div>
+</div>
+</article>
+
+<article class="card">
+<!-- LAB 4 -->
+<iframe src="https://www.youtube-nocookie.com/embed/_LD6JTbSCu8" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="card-content">
+<h3>Lab 4 (Navigation)</h3>
+<p>Implemented navigation between multiple screens and data transfer between destinations.</p>
+<div class="reflection">
+<strong>Reflection:</strong>
+<p>I learned how to implement navigation between multiple screen and pass data between screens effectively. The knowledge gained was essential for building the multi-screen structure of my app.</p>
+</div>
+</div>
+</article>
+
+<article class="card">
+<!-- LAB 5 -->
+<iframe src="https://www.youtube-nocookie.com/embed/K75DhV_HTM4" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="card-content">
+<h3>Lab 5 (Room)</h3>
+<p>Implemented local storage and persistence using Room Database architecture components.</p>
+<div class="reflection">
+<strong>Reflection:</strong>
+<p>I learned how to use Room Database for local data persistence. I implemented entities, DAOs, and database management to store and retrieve user data efficiently.</p>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+
+<div class="cards">
+
+<article class="card">
+<!-- PROJECT 1 -->
+<iframe src="https://www.youtube-nocookie.com/embed/tBIvhylI5Xs" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="card-content">
+<h3>Project 1 – SheSync</h3>
+
+<p><strong>Problem Statement:</strong></p>
+<p>
+Many women find it difficult to consistently track their menstrual cycles, moods, and personal health records using traditional methods. There is a need for a simple and accessible mobile application that helps users monitor their health and well-being in one place.
+</p>
+
+<div class="reflection">
+<strong>Lessons Learned:</strong>
+<p>
+I learned how to integrate multiple screens and features into a complete mobile application using Jetpack Compose Navigation. I improved my skills in UI design, state management, and feature integration while ensuring a smooth user experience.
+</p>
+</div>
+
+<a href="https://drive.google.com/drive/folders/1ju9P2LQiTnAhUz6a8irJvJ3dhakTBiJD?usp=drive_link" target="_blank" class="btn">View on GitHub</a>
+
+</div>
+</article>
+
+<article class="card">
+<!-- PROJECT 2 -->
+<iframe src="https://www.youtube-nocookie.com/embed/tBIvhylI5Xs" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="card-content">
+<h3>Project 2 – SheSync</h3>
+
+<p><strong>Problem Statement:</strong></p>
+<p>
+Women often require timely access to health-related information and nearby healthcare facilities, but existing solutions may not provide personalized tracking and community support. This project aims to combine health tracking, location services, cloud sharing, and real-time information within a single platform.
+</p>
+
+<div class="reflection">
+<strong>Lessons Learned:</strong>
+<p>
+I gained practical experience integrating Room Database, Firebase Firestore, REST APIs, and GPS location services into a mobile application. I learned how different technologies can work together to create a more functional, connected, and user-centered application.
+</p>
+</div>
+
+<a href="https://drive.google.com/drive/folders/1zbvwYbPomLMLdijH_oz193vqniJITCj0?usp=drive_link" target="_blank" class="btn">View on GitHub</a>
+
+</div>
+</article>
+
+</div>
+</section>
+
+<section id="reflection">
+<h2 class="section-title">Reflection & Learning Journey</h2>
+
+<div class="reflection-box">
+<p>
+Throughout this course, I developed a strong foundation in Android application development using Kotlin and Jetpack Compose. Each lab introduced new concepts that gradually built my technical skills, from designing user interfaces to implementing databases, APIs, cloud services, and sensors.
+</p>
+<br>
+<p>
+Developing SheSync allowed me to apply these concepts in a real-world project and strengthened my problem-solving, debugging, and software development skills. Overall, the experience has increased my confidence in developing modern mobile applications.
+</p>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="section-title">Skills & Tech Stack</h2>
+
+<div class="skills">
+<span class="skill">Kotlin</span>
+<span class="skill">Jetpack Compose</span>
+<span class="skill">Material Design</span>
+<span class="skill">Navigation Compose</span>
+<span class="skill">Room Database</span>
+<span class="skill">Firebase Firestore</span>
+<span class="skill">Retrofit</span>
+<span class="skill">REST API Integration</span>
+<span class="skill">GPS Location Services</span>
+<span class="skill">Android Studio</span>
+<span class="skill">GitHub</span>
+</div>
+</section>
+
+<section id="resources">
+<h2 class="section-title">Resources</h2>
+
+<div class="resources-grid">
+<div class="resource">Android Jetpack Libraries</div>
+<div class="resource">Firebase Firestore Documentation</div>
+<div class="resource">Room Database Documentation</div>
+<div class="resource">Retrofit Documentation</div>
+<div class="resource">Geoapify Places API</div>
+<div class="resource">Google Play Services Location API</div>
+</div>
+
+<div class="reflection-box" style="margin-top:30px;">
+<h3>AI Assistance Declaration</h3>
+<p>
+AI tools, including ChatGPT, were used as learning aids to assist with understanding concepts, syntax verification, error diagnosis, code debugging support, technical guidance, system syntax checking, error log diagnostics, layout structural reference generation, and documentation content compilation while maintaining absolute authentic code ownership and developer clarity.
+</p>
+</div>
+</section>
+
+</div>
+
+<footer>
+<p><strong>NURADELINA SHAFI BINTI INDRA AFENDI</strong></p>
+<p>Matric No: A212796</p>
+<p>© 2026 Student e-Portfolio</p>
+</footer>
+
+</body>
+</html>
